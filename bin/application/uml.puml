@@ -1,0 +1,12 @@
+@startuml
+
+class Main << (C, #ADD1B2) >> {
+    + start(primaryStage: Stage): void
+    + main(args: String[]): void
+}
+
+class Application
+
+Main --|> Application
+
+@enduml

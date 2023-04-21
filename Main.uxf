@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>10</y>
+      <w>240</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>application::Main
+--
+--
++start(Stage primaryStage): void
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>100</y>
+      <w>1020</w>
+      <h>500</h>
+    </coordinates>
+    <panel_attributes>controllers::TransactionController
+--
+-transactionService = new TransactionService(): TransactionService
+-transactions = FXCollections.observableArrayList(): ObservableList&lt;Transaction&gt;
+-tableView: TableView&lt;Transaction&gt;
+-lblUser: Label
+-lblTotal: Label
+-categoryOptions: ComboBox&lt;Transaction.Category&gt;
+-descriptionField: TextField
+-amountField: TextField
+-addButton: Button
+-searchButton: Button
+-datePicker: DatePicker
+-editDatePicker: DatePicker
+-editColumn: TableColumn&lt;Transaction, String&gt;
+--
++initialize(URL url, ResourceBundle resourceBundle): void
++addTransaction(ActionEvent event): void
++editTransaction(ActionEvent event): void
++editButtonTableCell(TransactionController transactionController): Callback&lt;TableColumn&lt;Transaction, String&gt;, TableCell&lt;Transaction, String&gt;&gt;
++deleteTransaction(ActionEvent event): void
++searchTransaction(ActionEvent event): void
++refresh(ActionEvent event): void
++goToPieChart(ActionEvent event): void
+-populateTableItems(): void
+-populateTransactionTypeOptions(): void
+-setLoggedInLabelText(): void
+-setTotalLabelText(): void
+-clearInputs(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1030</x>
+      <y>0</y>
+      <w>470</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>controllers::EditTransactionController
+--
+-transactionService = new TransactionService(): TransactionService
+-descriptionField: TextField
+-amountField: TextField
+-editDatePicker: DatePicker
+-categoryOptions: ComboBox&lt;Transaction.Category&gt;
+-transaction: Transaction
+--
++setTransaction(Transaction transaction): void
++save(ActionEvent event): void
++cancel(ActionEvent event): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>530</y>
+      <w>530</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>controllers::LoginController
+--
+-authenticationService = new AuthenticationService(): AuthenticationService
+-usernameField: TextField
+-passwordField: PasswordField
+-submitButton: Button
+-goToRegisterButton: Button
+--
++login(ActionEvent event): void
++goToDashboard(Stage stage): void
++goToRegister(ActionEvent event): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>510</y>
+      <w>330</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>controllers::RegisterController
+--
+-userService = new UserService(): UserService
+-usernameField: TextField
+-passwordField: PasswordField
+-passwordConfirmationField: PasswordField
+-submitButton: Button
+--
++register(ActionEvent event): void
++goToLogin(ActionEvent event): void
+-goToLogin(Stage stage): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>510</y>
+      <w>470</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>controllers::PieChartController
+--
+-transactionService = new TransactionService(): TransactionService
+-incomePieChart: PieChart
+-outcomePieChart: PieChart
+--
++initialize(URL url, ResourceBundle resourceBundle): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>710</y>
+      <w>390</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>controllers::EditButtonTableCell
+--
+-editButton: Button
+--
++EditButtonTableCell(Callback&lt;S, Void&gt; callback): ctor
+#updateItem(T item, boolean empty): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
